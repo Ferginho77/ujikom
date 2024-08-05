@@ -1,2 +1,5 @@
-$a = "hello world"
-echo "$a";
+<?php
+session_start();
+
+
+?>
