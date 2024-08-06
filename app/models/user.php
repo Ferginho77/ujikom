@@ -1,17 +1,25 @@
 <?php
-class User {
-    private $db;
 
-    public function __construct() {
-        $this->db = new Database();
+namespace App\Models;
+
+use App\Core\Database;
+
+class User
+{
+    private $conn;
+    private $table_name = "user";
+
+    public function __construct()
+    {
+        $database = new Database();
+        $this->conn = $database->getConnection();
     }
 
-    public function getUserByEmail($email) {
-        $this->db->query("SELECT * FROM user WHERE email = :email");
-        $this->db->bind(':email', $email);
-        return $this->db->single();
+    public function getAllUsers()
+    {
+        $query = "SELECT id, name, email FROM " . $this->table_name . " ORDER BY id ASC";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
     }
-
-    // Tambahkan metode lain yang diperlukan
 }
-?>
