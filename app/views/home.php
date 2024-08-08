@@ -23,7 +23,7 @@ var_dump($_SESSION);
         echo "<p>Anda belum login. Silahkan <a href='login.php'>login</a></p>";
     }
     ?>
-<p>Coba Logout</p><a href="..controllers/c_user.php?aksi=logout">Logout</a>
+<p>Coba Logout</p><a href="../controllers/c_user.php?aksi=logout">Logout</a>
 </main>
 </body>
 </html>

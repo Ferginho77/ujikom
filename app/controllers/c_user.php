@@ -10,7 +10,7 @@ $login = new c_login();
             if ($_GET['aksi'] == 'regis') {
         
                 $Username = $_POST['Username'];
-                $Password = $_POST['Password'];
+                $Password = password_hash($Password, PASSWORD_DEFAULT);
                 $Email = $_POST['Email'];
                 $NamaLengkap = $_POST['NamaLengkap'];
                 $Alamat = $_POST['Alamat'];
@@ -22,7 +22,9 @@ $login = new c_login();
                     } else {
                         echo "<script>alert('Data Gagal Ditambah');window.location='../views/tampil_data.php'</script>";
                     }
-                } elseif ($_GET['aksi'] == 'login') {
+                   
+                }
+                    elseif ($_GET['aksi'] == 'login') {
                     $Username = $_POST['Username'];
                     $Password = $_POST['Password'];
                     if ($login) {
