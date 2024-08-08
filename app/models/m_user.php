@@ -31,17 +31,12 @@ class c_login{
     }
     public function isUsernameExists($Username) {
         $conn = new database();
-        
-        // Menggunakan prepared statement untuk mencegah SQL injection
-        $stmt = $conn->koneksi->prepare("SELECT COUNT(*) as count FROM user WHERE Username = ?");
-        $stmt->bind_param("s", $Username);
-        $stmt->execute();
-        $stmt->bind_result($count);
-        $stmt->fetch();
-        
-        // Jika count lebih dari 0, username sudah ada
-        $stmt->close();
-        return $count > 0;
+        $sql = "SELECT 1 FROM user WHERE Username = '$Username' LIMIT 1";
+        $result = mysqli_query($conn->koneksi, $sql);
+
+        // Jika ada hasil, maka username sudah ada
+        return mysqli_num_rows($result) > 0;
+    
     }
 
 
