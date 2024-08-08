@@ -26,13 +26,18 @@ $login = new c_login();
                     $Username = $_POST['Username'];
                     $Password = $_POST['Password'];
                     if ($login) {
-                        echo "<script>alert('Data Berhasil Ditambahkan');window.location='../views/home.php'</script>";
+                        echo "<script>alert('Login Berhasil');window.location='../views/home.php'</script>";
                     } else {
-                        echo "<script>alert('Data Gagal Ditambah');window.location='../views/tampil_data.php'</script>";
+                        echo "<script>alert('Login Gagal');window.location='../views/login.php'</script>";
                     }
                     $login->login($Username, $Password);
                 } elseif ($_GET['aksi'] == 'logout') {
                     $login->logout();
+                    if($login){
+                        echo "<script>alert('Logout Berhasil');window.location='../views/login.php'</script>";
+                    } else {
+                        echo "<script>alert('Logout Gagal');window.location='../views/home.php'</script>";
+                    }
                 }
                 
         } catch (Exception $e) {

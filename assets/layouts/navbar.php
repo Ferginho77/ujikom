@@ -15,10 +15,11 @@
     <a class="navbar-brand" href="#section_1">Socify</a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ms-auto">
-        <a class="nav-link active" href="#section_1">Home</a>
+        <a class="nav-link active" href="../../app/views/home.php">Home</a>
         <a class="nav-link active" href="#section_2">AlbumKu</a>
         <a class="nav-link active" href="#section_3">Uploads</a>
-        <a class="nav-link active" href="#section_3">Profil</a>
+        <a class="nav-link active" href="../../app/views/profile.php">Profil</a>
+        <a class="nav-link active" href="../../app/controllers/c_user.php?aksi=Logout">Logout</a>
       </div>
     </div>
   </div>

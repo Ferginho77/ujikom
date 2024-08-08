@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../public/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <script src="https://unpkg.com/feather-icons"></script>
     <title>Login Page</title>
@@ -15,10 +15,10 @@
 <body>
     <div class="input">
         <h1>LOGIN</h1>
-        <form action="" method="POST">
+        <form action="../controllers/c_user.php?aksi=login" method="POST">
             <div class="box-input">
-                <i class="fas fa-envelope-open-text"></i>
-                <input type="text" name="email" placeholder="Email">
+            <i class="far fa-user"></i>
+                <input type="text" name="Username" placeholder="Username">
             </div>
             <div class="box-input">
                 <i class="fas fa-lock"></i>
@@ -37,7 +37,7 @@
     <script>
       feather.replace();
     </script>
-    <script src="../public/assets/js/login.js">
+    <script src="../../assets/js/login.js">
     </script>
 </body>
 

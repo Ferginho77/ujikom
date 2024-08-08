@@ -1,4 +1,8 @@
+<?php
+require_once '../models/m_user.php';
+require_once '../controllers/conn.php';
 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,10 +15,15 @@
 <body>
 <?php require_once'../../assets/layouts/navbar.php'?>
 <main class="mt-3">
-<h1>
-  Selamat Datang <?= $_SESSION['data']['nama'] ?>?>
-</h1>
-
+<?php
+var_dump($_SESSION);
+    if (isset($_SESSION['Username'])) {
+        echo "<h3> Selamat Datang, " . $_SESSION['Username'] . "</h3>";
+    } else {
+        echo "<p>Anda belum login. Silahkan <a href='login.php'>login</a></p>";
+    }
+    ?>
+<p>Coba Logout</p><a href="..controllers/c_user.php?aksi=logout">Logout</a>
 </main>
 </body>
 </html>

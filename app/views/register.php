@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../public/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <script src="https://unpkg.com/feather-icons"></script>
     <title>Login Page</title>
@@ -15,7 +15,7 @@
 <body>
     <div class="input">
         <h1>REGISTER</h1>
-        <form action="../controllers/c_regis.php?aksi=regis" method="POST">
+        <form action="../controllers/c_user.php?aksi=regis" method="POST">
         <div class="box-input">
                  <i class="far fa-user"></i>
                 <input type="text" name="Username" placeholder="Username">
@@ -38,7 +38,7 @@
                 <input type="text" name="Alamat" placeholder="Alamat">
             </div>
             <a href="dashboard.html">
-                <button type="submit" name="regis" class="btn-input">Login</button>
+                <button type="submit" name="regis" class="btn-input">Register</button>
             </a>
             <div class="bottom">
                 <p>Sudah punya akun?
@@ -50,7 +50,7 @@
     <script>
       feather.replace();
     </script>
-    <script src="../../public/assets/js/login.js">
+    <script src="../../assets/js/login.js">
     </script>
 </body>
 

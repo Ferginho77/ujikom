@@ -40,9 +40,9 @@ class c_login{
             return $result;
             //mengecek kondisi data berhasil atau tidak
             if ($result) {
-                echo "<script>alert('Data Berhasil Ditambahkan');window.location='../views/login.php'</script>";
+                echo "<script>alert(Login Berhasil');window.location='../views/home.php'</script>";
             } else {
-                echo "<script>alert('Data Gagal Ditambah');window.location='../views/tampil_data.php'</script>";
+                echo "<script>alert('Data Gagal Ditambah');window.location='../views/login.php'</script>";
             }
 
             //merubah data menjadi array asosiatif
@@ -55,7 +55,7 @@ class c_login{
         //menghentikan session
         session_destroy();
 
-        header("Location: ../views/home.php");
+        header("<script>alert('Logout berhasil');window.location='../views/login.php'</script>");
         exit;
     }
 
