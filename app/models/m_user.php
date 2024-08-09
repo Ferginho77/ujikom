@@ -51,68 +51,30 @@ class c_login{
             $sql = "SELECT * FROM user WHERE Username  = '$Username'";
 
             $result = mysqli_query($conn->koneksi, $sql);
-            // var_dump($result);
-            // exit;
             
             //merubah data menjadi array asosiatif
             $data = mysqli_fetch_assoc($result);
-            // echo var_dump($data);
-            // exit;
-
+           
             //MEMULAI SESI LOGIN
 
             if ($result) {
                if(mysqli_num_rows($result) == 1){
-                
-                // $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
-                // $hash = $row['Password'];
-                // var_dump(password_verify($Password, $hash));
                 if(password_verify($Password, $data['Password'])){
                     $_SESSION["data"] = $data;
                     echo"<script>
-        alert('Password Benar');
-        window.location.href='../views/home.php';
-      </script>";
+                    alert('Password Benar');
+                    window.location.href='../views/home.php';
+                    </script>";
                 }else{
                     echo"<script>
                     alert('Password Salah');
                     window.location.href='../views/login.php';
-                  </script>";
+                    </script>";
                 }
                 
                }
             }
-        
-                //Code percobaan ke 2
-
-            // echo var_dump($data);
-            // exit;
-
-            // $hash = password_verify($Password,$hash);
-
-            //  echo   var_dump(password_verify($Password,$data['Password']));
-
-            // if ( $data = true) {
-            //     if(password_verify($Password,$data['Password'])){
-            //         echo 'coba';
-            //     }
-            //     echo 'coba2';
-            // }
-
-            //percobaan ke 3
-
-        // if ($data) {
-        //     if (password_verify($Password,$data['Password'])) {
-        //         $_SESSION["data"] = $data;
-
-        //         header("Location: ../views/home.php");
-        //         exit;
-        //     }
-        // }
-
         }
-        // echo 'coba 3';
     }
 
     public function logout(){

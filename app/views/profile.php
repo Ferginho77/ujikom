@@ -23,19 +23,19 @@ session_start()
                     <div class="row">
                         <div class="mt-3">
                             <p class="font-weight-bold">Username:</p>
-                            <h6 class="text-muted">@abcd</h6>
+                            <h6 class="text-muted"><?= $_SESSION['data']['Username'] ?></h6>
                         </div>
                         <div class="mt-3">
                             <p class="font-weight-bold">Email:</p>
-                            <h6 class="text-muted">@abcd</h6>
+                            <h6 class="text-muted"><?= $_SESSION['data']['Email'] ?></h6>
                         </div>
                         <div class="mt-3">
                             <p class="font-weight-bold">Nama Lengkap:</p>
-                            <h6 class="text-muted">@abcd</h6>
+                            <h6 class="text-muted"><?= $_SESSION['data']['NamaLengkap'] ?></h6>
                         </div>
                         <div class="mt-3">
                             <p class="font-weight-bold">Alamat:</p>
-                            <h6 class="text-muted">@abcd</h6>
+                            <h6 class="text-muted"><?= $_SESSION['data']['Alamat'] ?></h6>
                         </div>
                     </div>
                 </div>

@@ -37,7 +37,7 @@
     <script>
       feather.replace();
     </script>
-    <script src="../../assets/js/login.js">
+     <script src="../../assets/js/login.js">
     </script>
 </body>
 
