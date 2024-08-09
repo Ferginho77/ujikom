@@ -27,12 +27,15 @@ $login = new c_login();
                     elseif ($_GET['aksi'] == 'login') {
                     $Username = $_POST['Username'];
                     $Password = $_POST['Password'];
-                    if ($login) {
-                        echo "<script>alert('Login Berhasil');window.location='../views/home.php'</script>";
-                    } else {
-                        echo "<script>alert('Login Gagal');window.location='../views/login.php'</script>";
-                    }
+                    // echo var_dump($Username, $Password);
                     $login->login($Username, $Password);
+
+                    // if ($login) {
+                    //     header("Location: ../views/home.php");
+                    //     exit;
+                    // }
+                    // echo 'gagal';
+                    
                 } elseif ($_GET['aksi'] == 'logout') {
                     $login->logout();
                     if($login){
