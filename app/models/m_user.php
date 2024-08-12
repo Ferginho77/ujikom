@@ -58,7 +58,7 @@ class c_login{
             //MEMULAI SESI LOGIN
 
             if ($result) {
-               if(mysqli_num_rows($result) == 1){
+               if(mysqli_num_rows($result) > 0){
                 if(password_verify($Password, $data['Password'])){
                     $_SESSION["data"] = $data;
                     echo"<script>
