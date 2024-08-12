@@ -8,6 +8,7 @@ class Foto {
      $sql = "INSERT INTO foto VALUES (NULL, '$JudulFoto', '$DeskripsiFoto', '$TanggalUnggah', '$LokasiFile',  '$AlbumId', '$UserId')";
 
      $result = mysqli_query($conn->koneksi, $sql);
+     return $result;
     
     }
 
@@ -26,6 +27,12 @@ class Foto {
             echo "Foto gagal ditambahkan";
         }
     }
-
+    function hapus($FotoId)
+	{
+		$conn = new database();
+		$sql = "DELETE FROM foto WHERE FotoId = $FotoId";
+		$result = mysqli_query($conn->koneksi, $sql);
+		return $result;
+	}
 
 }
