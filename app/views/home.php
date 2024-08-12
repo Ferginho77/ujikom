@@ -8,5 +8,5 @@ session_start();
 
 <?php require_once'../../assets/layouts/navbar.php'?>
 <main class="mt-3">
-<h1> Selamat Datang <?= $_SESSION['data']['Username'] ?>,</h1>
+<h1> Selamat Datang <?= $_SESSION['data']['Username'] ?></h1>
 </main>

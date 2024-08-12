@@ -7,23 +7,41 @@ $login = new c_login();
 
         //        
         try {
-            if ($_GET['aksi'] == 'regis') {
-        
+            if (isset($_POST['regis']) || isset($_POST['update'])) {
                 $Username = $_POST['Username'];
-                $Password = password_hash($Password, PASSWORD_DEFAULT);
+                $Password = password_hash($_POST['Password'], PASSWORD_BCRYPT);
                 $Email = $_POST['Email'];
                 $NamaLengkap = $_POST['NamaLengkap'];
                 $Alamat = $_POST['Alamat'];
-            
-                    //memanggil method register
-                    $login->register($Username, $Password, $Email, $NamaLengkap, $Alamat);
-                    if ($login) {
-                        echo "<script>alert('Data Berhasil Ditambahkan');window.location='../views/login.php'</script>";
-                    } else {
-                        echo "<script>alert('Data Gagal Ditambah');window.location='../views/tampil_data.php'</script>";
+                
+                if ($_GET['aksi'] == 'regis') {
+                
+                    $Username = $_POST['Username'];
+                    $Password = password_hash($_POST['Password'], PASSWORD_BCRYPT);
+                    $Email = $_POST['Email'];
+                    $NamaLengkap = $_POST['NamaLengkap'];
+                    $Alamat = $_POST['Alamat'];
+                    
+                
+                        //memanggil method register
+                        $login->register($Username, $Password, $Email, $NamaLengkap, $Alamat);
+                        if ($login) {
+                            echo "<script>alert('Data Berhasil Ditambahkan');window.location='../views/login.php'</script>";
+                        } else {
+                            echo "<script>alert('Data Gagal Ditambah');window.location='../views/tampil_data.php'</script>";
+                        }
+                       
                     }
-                   
-                }
+                    // elseif ($_GET['aksi'] == 'update') {
+                    //     $result = $login->UpdateProfil($id, $nama, $jk, $alamat);
+                    //     if ($result) {
+                    //         echo "<script>alert('Data Berhasil Diubah');window.location='../views/tampil_data.php'</script>";
+                    //     } else {
+                    //         echo "<script>alert('Data Gagal Diubah');window.location='../views/tampil_data.php'</script>";
+                    //     }
+                    // }
+            }            
+           
                     elseif ($_GET['aksi'] == 'login') {
                     $Username = $_POST['Username'];
                     $Password = $_POST['Password'];

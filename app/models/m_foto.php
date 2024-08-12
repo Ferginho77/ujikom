@@ -7,6 +7,25 @@ class Foto {
      $conn = new database();
      $sql = "INSERT INTO foto VALUES (NULL, '$JudulFoto', '$DeskripsiFoto', '$TanggalUnggah', '$LokasiFile',  '$AlbumId', '$UserId')";
 
-     $query = mysqli_query($conn->conn(), $sql);   
+     $result = mysqli_query($conn->koneksi, $sql);
+    
     }
+
+    public function UpdateFoto($JudulFoto, $DeskripsiFoto, $TanggalUnggah, $LokasiFile,  $AlbumId, $UserId){
+        $conn = new database();
+        $sql = "UPDATE foto SET JudulFoto='$JudulFoto', DeskripsiFoto='$DeskripsiFoto', TanggalUnggah='$TanggalUnggah', LokasiFile='$LokasiFile', AlbumId='$AlbumId', UserId='$UserId'";
+
+        $result = mysqli_query($conn->koneksi, $sql);
+        if ($result) {
+
+            // echo "data tidak gagal ditambahkan";
+            echo "<script>alert('Foto Berhasil Ditambahkan');window.location='../views/home.php'</script>";
+
+        } else {
+
+            echo "Foto gagal ditambahkan";
+        }
+    }
+
+
 }
