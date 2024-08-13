@@ -17,7 +17,7 @@
       <div class="navbar-nav ms-auto">
         <a class="nav-link active" href="../../app/views/home.php">Home</a>
         <a class="nav-link active" href="#section_2">AlbumKu</a>
-        <a class="nav-link active" href="#section_3">Uploads</a>
+        <a class="nav-link active" href="../../app/views/uploads.php">Uploads</a>
         <a class="nav-link active" href="../../app/views/profile.php">Profile</a>
         <a class="nav-link active" href="../../app/controllers/c_user.php?aksi=logout">Logout</a>
       </div>
