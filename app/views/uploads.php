@@ -21,7 +21,7 @@
                         <div class="form-group">
                             <label>pilih gambar</label>
                             <input type="file" name="LokasiFile" class="form-control"  >
-                            <small class="text-danger">file harus berupa: *.jpg *.png *.gif</small>
+                            <small class="text-danger">file harus berupa: *.jpg *.png</small>
                         </div>
                         <input type="submit" value="uploads" name="uploads" class="btn btn-danger my-3">
                     </form>

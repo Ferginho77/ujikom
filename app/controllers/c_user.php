@@ -25,6 +25,7 @@ $login = new c_login();
                 
                         //memanggil method register
                         $login->register($Username, $Password, $Email, $NamaLengkap, $Alamat);
+                        $login->isUsernameExists($Username);
                         if ($login) {
                             echo "<script>alert('Data Berhasil Ditambahkan');window.location='../views/login.php'</script>";
                         } else {

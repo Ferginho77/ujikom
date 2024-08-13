@@ -11,7 +11,7 @@ session_start()
                     <i class="far fa-user mt-5"></i>
                     <h4>Nama Anda</h4>
                             <img
-            src="../../assets/img/IDN-2.png"
+            src="../../assets/img/Default_pfp.svg.png"
             alt="LOGO"
             width="200"
             class="rounded-circle mt-5 mb-1"
