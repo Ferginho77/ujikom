@@ -12,13 +12,6 @@ if (isset($_POST['tambah']) || isset($_POST['update'])) {
     $AlbumId = $_POST['AlbumId'];
 
     if ($_GET['aksi'] == 'tambah') {
-
-        $JudulFoto = $_POST['JudulFoto'];
-        $DeskripsiFoto = $_POST['DeskripsiFoto'];
-        $TanggalUnggah = $_POST['TanggalUnggah'];
-        $LokasiFile = $_POST['LokasiFile'];
-        $AlbumId = $_POST['AlbumId'];
-        
         
         $foto->TambahFoto($JudulFoto, $DeskripsiFoto, $TanggalUnggah, $LokasiFile,  $AlbumId, $UserId);
         if ($foto) {

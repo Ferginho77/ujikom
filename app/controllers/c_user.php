@@ -33,14 +33,14 @@ $login = new c_login();
                         }
                        
                     }
-                    // elseif ($_GET['aksi'] == 'update') {
-                    //     $result = $login->UpdateProfil($id, $nama, $jk, $alamat);
-                    //     if ($result) {
-                    //         echo "<script>alert('Data Berhasil Diubah');window.location='../views/tampil_data.php'</script>";
-                    //     } else {
-                    //         echo "<script>alert('Data Gagal Diubah');window.location='../views/tampil_data.php'</script>";
-                    //     }
-                    // }
+                    elseif ($_GET['aksi'] == 'update') {
+                        $result = $login->UpdateProfil($Username, $Password, $Email, $NamaLengkap, $Alamat);
+                        if ($result) {
+                            echo "<script>alert('Data Berhasil Diubah');window.location='../views/profile.php'</script>";
+                        } else {
+                            echo "<script>alert('Data Gagal Diubah');window.location='../views/edit_prof.php'</script>";
+                        }
+                    }
             }            
            
                     elseif ($_GET['aksi'] == 'login') {

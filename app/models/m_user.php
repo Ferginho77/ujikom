@@ -32,7 +32,7 @@ class c_login{
     }
     public function isUsernameExists($Username) {
         $conn = new database();
-        $sql = "SELECT 1 FROM user WHERE Username = '$Username' LIMIT 1";
+        $sql = "SELECT * FROM user WHERE Username = '$Username' LIMIT 1";
         $result = mysqli_query($conn->koneksi, $sql);
 
         // Jika ada hasil, maka username sudah ada
@@ -93,7 +93,16 @@ class c_login{
         }
     }
 
+    function tampil_data_id($UserId)
+	{
+		$conn = new database();
+		$sql = mysqli_query($conn->koneksi, "SELECT * FROM user WHERE UserId = $UserId");
+		while ($row = mysqli_fetch_object($sql)) {
+			$hasil[] = $row;
+		}
 
+		return $hasil;
+	}
 
     public function logout(){
 
