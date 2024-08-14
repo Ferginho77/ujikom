@@ -21,8 +21,8 @@ if (isset($_POST['tambah']) || isset($_POST['update'])) {
         }
         
     }elseif ($_GET['aksi'] == 'update') {
-        $result = $foto->UpdateFoto($JudulFoto, $DeskripsiFoto, $TanggalUnggah, $LokasiFile,  $AlbumId, $UserId);
-        if ($result) {
+        $foto->UpdateFoto($JudulFoto, $DeskripsiFoto, $TanggalUnggah, $LokasiFile,  $AlbumId, $UserId);
+        if ($foto) {
             echo "<script>alert('Data Berhasil Diubah');window.location='../views/home.php'</script>";
         } else {
             echo "<script>alert('Data Gagal Diubah');window.location='../views/uploads.php'</script>";

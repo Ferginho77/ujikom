@@ -17,7 +17,7 @@ session_start()
             class="rounded-circle mt-5 mb-1"
         />
                     </div>
-                    <button type="button" class="btn text-white bg-warning">Edit Profile</button>
+                    <a class="btn text-white bg-warning" href="edit_prof.php">Edit Profile</a>
                 </div>
                 <div class="col-sm-8 bg-white rounded-right">
                     <h3 class="mt-3 text-center"> Profil Anda</h3>

@@ -14,7 +14,6 @@ class c_login{
         
         // membuat variabel yang bertipe data objek dari kelas c_koneksi
         $conn = new database();
-        var_dump($Password);
 
         // perintah untuk memasukan data register kedalam tabel users
         $sql = "INSERT INTO user VALUES (NULL, '$Username', '$Password', '$Email', '$NamaLengkap',  '$Alamat')";
@@ -82,8 +81,8 @@ class c_login{
         $sql = "UPDATE user SET Username='$Username', Password='$Password', Email='$Email', NamaLengkap='$NamaLengkap', Alamat='$Alamat'";
 
         $result = mysqli_query($conn->koneksi, $sql);
+        
         if ($result) {
-
             // echo "data tidak gagal ditambahkan";
             echo "<script>alert('User Berhasil Di edit');window.location='../views/profil.php'</script>";
 

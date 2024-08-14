@@ -7,15 +7,10 @@ $login = new c_login();
 
         //        
         try {
-            if (isset($_POST['regis']) || isset($_POST['update'])) {
-                $Username = $_POST['Username'];
-                $Password = password_hash($_POST['Password'], PASSWORD_BCRYPT);
-                $Email = $_POST['Email'];
-                $NamaLengkap = $_POST['NamaLengkap'];
-                $Alamat = $_POST['Alamat'];
+            if (isset($_POST['regis'])) {
+               
                 
                 if ($_GET['aksi'] == 'regis') {
-                
                     $Username = $_POST['Username'];
                     $Password = password_hash($_POST['Password'], PASSWORD_BCRYPT);
                     $Email = $_POST['Email'];
@@ -25,6 +20,7 @@ $login = new c_login();
                 
                         //memanggil method register
                         $login->register($Username, $Password, $Email, $NamaLengkap, $Alamat);
+                        
                         $login->isUsernameExists($Username);
                         if ($login) {
                             echo "<script>alert('Data Berhasil Ditambahkan');window.location='../views/login.php'</script>";
@@ -33,20 +29,24 @@ $login = new c_login();
                         }
                        
                     }
-                    elseif ($_GET['aksi'] == 'update') {
-                        $result = $login->UpdateProfil($Username, $Password, $Email, $NamaLengkap, $Alamat);
-                        if ($result) {
-                            echo "<script>alert('Data Berhasil Diubah');window.location='../views/profile.php'</script>";
-                        } else {
-                            echo "<script>alert('Data Gagal Diubah');window.location='../views/edit_prof.php'</script>";
-                        }
-                    }
-            }            
+
+            }elseif(isset($_POST['update'])) {
+                if( $_GET['aksi'] == 'update'){
+                    $Username = $_POST['Username'];
+                    $Password = password_hash($_POST['Password'], PASSWORD_BCRYPT);
+                    $Email = $_POST['Email'];
+                    $NamaLengkap = $_POST['NamaLengkap'];
+                    $Alamat = $_POST['Alamat'];
+
+                    $login->UpdateProfil($Username, $Password, $Email, $NamaLengkap, $Alamat);
+                    var_dump($login);
+                }
+            }           
            
                     elseif ($_GET['aksi'] == 'login') {
                     $Username = $_POST['Username'];
                     $Password = $_POST['Password'];
-                    // echo var_dump($Username, $Password);
+                    // echo _dump($Username, $Password);
                     $login->login($Username, $Password);
 
                     // if ($login) {
@@ -68,4 +68,3 @@ $login = new c_login();
             echo $e->getMessage();
         }
 
-?>

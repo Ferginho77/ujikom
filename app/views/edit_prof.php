@@ -1,28 +1,38 @@
-<?php foreach ($login->tampil_data_id($_GET['UserId']) as $login) :  ?>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="exampleFormControlInput1" name="UserId" value="<?= $siswa->UserId ?>">
+<?php require_once'../../assets/layouts/navbar.php';
+session_start()
+?>
+ <a class="btn text-white bg-danger" href="profile.php">Kembali</a>
+     
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+            <div class="card">
+                <div class="card-header">
+                    Edit Profil Anda
+                </div>
+                <div class="card-body">
+                    <form action="../controllers/c_user.php?aksi=update" class="p-2">
+                    <input type="hidden" name="UserId" value="<?= $_SESSION['data']['UserId']?>">
+                        <div class="form-group">
+                            <label for="Username">Username</label>
+                            <input class="form-control" type="text" name="Username" value="<?= $_SESSION['data']['Username']?>">
                         </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Nama Siswa</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nama Siswa" name="nama_siswa" value="<?= $siswa->nama_siswa ?>">
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input class="form-control" type="text" name="Email" value="<?= $_SESSION['data']['Email']?>">
                         </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Jenis Kelamin</label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="jk_siswa" id="flexRadioDefault1" value="laki-laki" <?= ($siswa->jk_siswa == 'laki-laki') ? 'checked' : '' ?>>
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Laki-Laki
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="jk_siswa" id="flexRadioDefault2" value="perempuan" <?= ($siswa->jk_siswa == 'perempuan') ? 'checked' : '' ?>>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Perempuan
-                                </label>
-                            </div>
+                        <div class="form-group">
+                            <label for="">Nama Lengkap</label>
+                            <input class="form-control" type="text" name="NamaLengkap" value="<?= $_SESSION['data']['NamaLengkap']?>">
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="alamat_siswa"><?= $siswa->alamat_siswa ?></textarea>
+                        <div class="form-group">
+                            <label for="">Alamat</label>
+                            <input class="form-control" type="text" name="Alamat" value="<?= $_SESSION['data']['Alamat']?>">
                         </div>
-<?php endforeach ?>
+                        <button type="submit" name="update" class="btn btn-outline-info mt-3">Simpan Perubahan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
