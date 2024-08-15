@@ -6,11 +6,10 @@ session_start();
 class Album {
     public function TambahAlbum($NamaAlbum, $Deskripsi, $TanggalDibuat, $UserId){
         $conn = new database();
-
-        $sql = "INSERT INTO album VALUES(NULL, '$NamaAlbum', '$Deskripsi', '$TanggalDibuat', '$UserId' )";
-
+        $sql = "INSERT INTO album VALUES (NULL, '$NamaAlbum', '$Deskripsi', '$TanggalDibuat', '$UserId')";
+            
         $result = mysqli_query($conn->koneksi, $sql);
-		return $result;
+        return $result;
         if ($result) {
             echo "<script>alert('Data Berhasil Ditambahkan');window.location='../views/album.php'</script>";
         } else {

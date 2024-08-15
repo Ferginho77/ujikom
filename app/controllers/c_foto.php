@@ -4,30 +4,32 @@ include_once '../models/m_foto.php';
 
 $foto = new Foto();
 
-if (isset($_POST['tambah']) || isset($_POST['update'])) {
-    $JudulFoto = $_POST['JudulFoto'];
-    $DeskripsiFoto = $_POST['DeskripsiFoto'];
-    $TanggalUnggah = $_POST['TanggalUnggah'];
-    $LokasiFile = $_POST['LokasiFile'];
-    $AlbumId = $_POST['AlbumId'];
+if (isset($_POST['tambah'])) {
+    
 
     if ($_GET['aksi'] == 'tambah') {
+        $JudulFoto = $_POST['JudulFoto'];
+        $DeskripsiFoto = $_POST['DeskripsiFoto'];
+        $TanggalUnggah = $_POST['TanggalUnggah'];
+        $AlbumId = $_POST['AlbumId'];
+        
+        $LokasiFile = $_FILES['LokasiFile'];
         
         $foto->TambahFoto($JudulFoto, $DeskripsiFoto, $TanggalUnggah, $LokasiFile,  $AlbumId, $UserId);
-        if ($foto) {
-            echo "<script>alert('Data Berhasil Ditambahkan');window.location='../views/home.php'</script>";
-        } else {
-            echo "<script>alert('Data Gagal Ditambah');window.location='../views/uploads.php'</script>";
-        }
         
-    }elseif ($_GET['aksi'] == 'update') {
-        $foto->UpdateFoto($JudulFoto, $DeskripsiFoto, $TanggalUnggah, $LokasiFile,  $AlbumId, $UserId);
-        if ($foto) {
-            echo "<script>alert('Data Berhasil Diubah');window.location='../views/home.php'</script>";
-        } else {
-            echo "<script>alert('Data Gagal Diubah');window.location='../views/uploads.php'</script>";
-        }
-    }else {
+    }   
+}
+            
+        if ($_GET['aksi'] == 'update') {
+            $JudulFoto = $_POST['JudulFoto'];
+            $DeskripsiFoto = $_POST['DeskripsiFoto'];
+            $TanggalUnggah = $_POST['TanggalUnggah'];
+            $LokasiFile = $_FILES['LokasiFile'];
+            $AlbumId = $_POST['AlbumId'];
+            $foto->UpdateFoto($JudulFoto, $DeskripsiFoto, $TanggalUnggah, $LokasiFile,  $AlbumId, $UserId);
+            }
+           
+    else {
         if ($_GET['aksi'] == 'hapus') {
             $FotoId = $_GET['fotoId'];
             $result = $foto->hapus($FotoId);
@@ -40,4 +42,3 @@ if (isset($_POST['tambah']) || isset($_POST['update'])) {
         }
     }
 
-}

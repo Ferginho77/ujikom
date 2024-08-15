@@ -37,11 +37,17 @@ session_start();
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                            //   include_once '../controllers/conn.php';
+                            //   $conn = new database;
+                            //   $id = $_SESSION['data']['AlbumId'];
+                            //   $sql = "SELECT * FROM album WHERE AlbumId = '$id'";
+                            //   $result = mysqli_query($conn->koneksi, $sql);
+                            //   $data = mysqli_fetch_assoc($result);
+                              // var_dump($data);
+                            ?>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                               
                             </tr>
                         </tbody>
                     </table>

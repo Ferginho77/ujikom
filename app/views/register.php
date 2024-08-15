@@ -37,9 +37,9 @@
                  <i class="fas fa-map-marker-alt"></i>
                 <input type="text" name="Alamat" placeholder="Alamat">
             </div>
-            <a href="dashboard.html">
+          
                 <button type="submit" name="regis" class="btn-input">Register</button>
-            </a>
+            
             <div class="bottom">
                 <p>Sudah punya akun?
                     <a href="login.php">Login disini</a>

@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4>halaman upload</h4>
-                    <form action="./controllers/c_foto.php?aksi=tambah" method="post">
+                    <form action="./controllers/c_foto.php?aksi=tambah" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>Judul Foto</label>
                             <input type="text" class="form-control" name="JudulFoto">
