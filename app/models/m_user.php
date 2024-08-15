@@ -76,15 +76,15 @@ class c_login{
             }
         }
     }
-    public function UpdateProfil($Username, $Password, $Email, $NamaLengkap,  $Alamat,){
+    public function UpdateProfil($UserId, $Username, $Email, $NamaLengkap,  $Alamat){
         $conn = new database();
-        $sql = "UPDATE user SET Username='$Username', Password='$Password', Email='$Email', NamaLengkap='$NamaLengkap', Alamat='$Alamat'";
+        $sql = "UPDATE user SET Username='$Username', Email='$Email', NamaLengkap='$NamaLengkap', Alamat='$Alamat' WHERE UserId = '$UserId'";
        
         $result = mysqli_query($conn->koneksi, $sql);
         
         if ($result) {
             // echo "data tidak gagal ditambahkan";
-            echo "<script>alert('User Berhasil Di edit');window.location='../views/profil.php'</script>";
+            echo "<script>alert('User Berhasil Di edit');window.location='../views/profile.php'</script>";
 
         } else {
 

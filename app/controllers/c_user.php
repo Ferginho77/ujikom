@@ -30,19 +30,18 @@ $login = new c_login();
                        
                     }
 
-            }elseif(isset($_POST['update'])) {
+            }
                 if( $_GET['aksi'] == 'update'){
                     $Username = $_POST['Username'];
-                    $Password = password_hash($_POST['Password'], PASSWORD_BCRYPT);
+                    $UserId = $_POST['UserId'];
                     $Email = $_POST['Email'];
+                    
                     $NamaLengkap = $_POST['NamaLengkap'];
                     $Alamat = $_POST['Alamat'];
-
-                    $login->UpdateProfil($Username, $Password, $Email, $NamaLengkap, $Alamat);
+                    $login->UpdateProfil($UserId,$Username,  $Email, $NamaLengkap, $Alamat);
                
                 }
-               
-            }          
+                        
            
                     elseif ($_GET['aksi'] == 'login') {
                     $Username = $_POST['Username'];

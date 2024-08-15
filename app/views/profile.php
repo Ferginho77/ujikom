@@ -17,26 +17,36 @@ session_start()
             class="rounded-circle mt-5 mb-1"
         />
                     </div>
-                    <a class="btn text-white bg-warning" href="edit_prof.php">Edit Profile</a>
+                    <a class="btn text-white bg-warning" href="edit_prof.php?id=<?= $_SESSION['data']['UserId']?>">Edit Profile</a>
                 </div>
                 <div class="col-sm-8 bg-white rounded-right">
                     <h3 class="mt-3 text-center"> Profil Anda</h3>
                     <div class="row">
+                        <?php 
+                        include_once '../controllers/conn.php';
+                        $conn = new database;
+                        $id = $_SESSION['data']['UserId'];
+                        $sql = "SELECT * FROM user WHERE UserId = '$id'";
+                        $result = mysqli_query($conn->koneksi, $sql);
+                        $data = mysqli_fetch_assoc($result);
+                        // var_dump($data);
+                        
+                        ?>
                         <div class="mt-3">
                             <p class="font-weight-bold">Username:</p>
-                            <h6 class="text-muted"><?= $_SESSION['data']['Username'] ?></h6>
+                            <h6 class="text-muted"><?= $data['Username'] ?></h6>
                         </div>
                         <div class="mt-3">
                             <p class="font-weight-bold">Email:</p>
-                            <h6 class="text-muted"><?= $_SESSION['data']['Email'] ?></h6>
+                            <h6 class="text-muted"><?= $data['Email'] ?></h6>
                         </div>
                         <div class="mt-3">
                             <p class="font-weight-bold">Nama Lengkap:</p>
-                            <h6 class="text-muted"><?= $_SESSION['data']['NamaLengkap'] ?></h6>
+                            <h6 class="text-muted"><?= $data['NamaLengkap'] ?></h6>
                         </div>
                         <div class="mt-3">
                             <p class="font-weight-bold">Alamat:</p>
-                            <h6 class="text-muted"><?= $_SESSION['data']['Alamat'] ?></h6>
+                            <h6 class="text-muted"><?= $data['Alamat'] ?></h6>
                         </div>
                     </div>
                  
