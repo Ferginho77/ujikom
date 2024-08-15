@@ -72,14 +72,14 @@ class c_login{
                     </script>";
                 }
                 
-               }
+            }
             }
         }
     }
     public function UpdateProfil($Username, $Password, $Email, $NamaLengkap,  $Alamat,){
         $conn = new database();
         $sql = "UPDATE user SET Username='$Username', Password='$Password', Email='$Email', NamaLengkap='$NamaLengkap', Alamat='$Alamat'";
-
+       
         $result = mysqli_query($conn->koneksi, $sql);
         
         if ($result) {

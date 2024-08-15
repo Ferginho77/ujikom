@@ -39,9 +39,10 @@ $login = new c_login();
                     $Alamat = $_POST['Alamat'];
 
                     $login->UpdateProfil($Username, $Password, $Email, $NamaLengkap, $Alamat);
-                    var_dump($login);
+               
                 }
-            }           
+               
+            }          
            
                     elseif ($_GET['aksi'] == 'login') {
                     $Username = $_POST['Username'];
