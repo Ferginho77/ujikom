@@ -1,14 +1,8 @@
 <?php
-session_start();
-// require_once '../models/m_user.php';
-// require_once '../controllers/conn.php';
-
+require_once'./assets/layouts/navbar.php'
 ?>
-
-
-<?php require_once'../../assets/layouts/navbar.php'?>
 <main class="mt-3">
-<h1> Selamat Datang <?= $_SESSION['data']['Username'] ?></h1>
+<h1> Selamat Datang <?= ucwords($_SESSION['data']['Username']); ?></h1>
 <section>
     
     <div class="card">
@@ -23,7 +17,6 @@ session_start();
                                 </figcaption>                    
                             </figure>
                             <div class="d-flex justify-content-between tm-text-gray">
-                                
                                 <span>9,906 views</span>
                             </div>
                         </div>

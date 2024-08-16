@@ -11,7 +11,7 @@ session_start()
                     Edit Profil Anda
                 </div>
                 <div class="card-body">
-                    <form action="../controllers/c_user.php?aksi=update" class="p-2" method="post">
+                    <form action="index.php?page=updateprof" class="p-2" method="post">
                     <?php 
                         include_once '../controllers/conn.php';
                         $conn = new database;

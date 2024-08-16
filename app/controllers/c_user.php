@@ -1,61 +1,79 @@
-<?php 
+<?php
+include_once './app/controllers/conn.php';
 
-include_once '../models/m_user.php';
+class C_user
+{
 
-$login = new c_login();
-
-
-        //        
-        try {
-            if (isset($_POST['regis'])) {
-                if ($_GET['aksi'] == 'regis') {
-                    $Username = $_POST['Username'];
-                    $Password = password_hash($_POST['Password'], PASSWORD_BCRYPT);
-                    $Email = $_POST['Email'];
-                    $NamaLengkap = $_POST['NamaLengkap'];
-                    $Alamat = $_POST['Alamat'];
-                        //memanggil method register
-                        $login->register($Username, $Password, $Email, $NamaLengkap, $Alamat);
-                        
-                        $login->isUsernameExists($Username);
-                        if ($login) {
-                            echo "<script>alert('Data Berhasil Ditambahkan');window.location='../views/login.php'</script>";
-                        } else {
-                            echo "<script>alert('Data Gagal Ditambah');window.location='../views/tampil_data.php'</script>";
-                        }
-                    }
-
-            }
-                if( $_GET['aksi'] == 'update'){
-                    $Username = $_POST['Username'];
-                    $UserId = $_POST['UserId'];
-                    $Email = $_POST['Email'];
-                    $NamaLengkap = $_POST['NamaLengkap'];
-                    $Alamat = $_POST['Alamat'];
-                    $login->UpdateProfil($UserId,$Username,  $Email, $NamaLengkap, $Alamat);
-                }
-                    elseif ($_GET['aksi'] == 'login') {
-                    $Username = $_POST['Username'];
-                    $Password = $_POST['Password'];
-                    // echo _dump($Username, $Password);
-                    $login->login($Username, $Password);
-
-                    // if ($login) {
-                    //     header("Location: ../views/home.php");
-                    //     exit;
-                    // }
-                    // echo 'gagal';
-                    
-                } elseif ($_GET['aksi'] == 'logout') {
-                    $login->logout();
-                    if($login){
-                        echo "<script>alert('Logout Berhasil');window.location='../views/login.php'</script>";
-                    } else {
-                        echo "<script>alert('Logout Gagal');window.location='../views/home.php'</script>";
-                    }
-                }
-                
-        } catch (Exception $e) {
-            echo $e->getMessage();
+    public function register($data)
+    {
+        $Username = $data['Username'];
+        $Password = password_hash($data['Password'], PASSWORD_BCRYPT);
+        $Email = $data['Email'];
+        $NamaLengkap = $data['NamaLengkap'];
+        $Alamat = $data['Alamat'];
+        $conn = new database();
+        $sql = "INSERT INTO user VALUES (NULL, '$Username', '$Password', '$Email', '$NamaLengkap',  '$Alamat')";
+        $result = mysqli_query($conn->koneksi, $sql);
+        if ($result) {
+            echo "<script>";
+            echo 'alert("Berhasil Daftar.");';
+            echo 'window.location.href = "index.php?page=login";';
+            echo '</script>';
+        } else {
+            echo "<script>";
+            echo 'alert("Gagal.");';
+            echo 'window.location.href = "index.php?page=register";';
+            echo '</script>';
         }
+    }
 
+    public function login($Username = null, $Password = null)
+    {
+
+        $conn = new database();
+        $sql = "SELECT * FROM user WHERE Username  = '$Username'";
+        $result = mysqli_query($conn->koneksi, $sql);
+        $data = mysqli_fetch_assoc($result);
+
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
+                if (password_verify($Password, $data['Password'])) {
+                $_SESSION["data"] = $data;
+                    echo "<script>
+                alert('Password Benar');
+                window.location.href='index.php?page=home';
+                </script>";
+                } else {
+                    echo "<script>
+                alert('Password Salah');
+                window.location.href='index.php?page=login';
+                </script>";
+                }
+            }
+        }
+    }
+
+    public function UpdateProfil($data){
+        $UserId = $data['UserId'];
+        $Username = $data['Username'];
+        $Email = $data['Email'];
+        $NamaLengkap = $data['NamaLengkap'];
+        $Alamat = $data['Alamat'];
+        $conn = new database();
+        $sql = "UPDATE user SET Username='$Username', Email='$Email', NamaLengkap='$NamaLengkap', Alamat='$Alamat' WHERE UserId = '$UserId'";
+        $result = mysqli_query($conn->koneksi, $sql);
+        if ($result) {
+            echo "<script>";
+            echo 'alert("Berhasil Daftar.");';
+            echo 'window.location.href = "index.php?page=profile";';
+            echo '</script>';
+        } else {
+            echo "<script>";
+            echo 'alert("Gagal.");';
+            echo 'window.location.href = "index.php?page=register";';
+            echo '</script>';
+        }
+    }
+
+
+}
